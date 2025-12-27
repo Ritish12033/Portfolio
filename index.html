@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ritish's Portfolio</title>
+
+    <link rel="icon" href="Favicons/briefcase.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!--<div style="position: absolute;">
+        <div class="avatar">
+            <!-- content -->
+        </div>
+    <!--</div>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>-->
+
+    <header>
+        <h1 class="logo">My Portfolio Space</h1>
+
+        <nav class="navbar">
+            <!--animated menu button-->
+            <button class="menu-button" id="menuButton" aria-controls="menuDrawer" aria-expanded="false" aria-label="Open menu">
+                <span class="bar bar1"></span>
+                <span class="bar bar2"></span>
+                <span class="bar bar3"></span>
+            </button>
+
+            <div class="menu-drawer" id="menuDrawer" aria-hidden="true">
+
+                <div class="menu-overlay" id="menuOverlay"></div>
+
+                <aside class="drawer-panel" role="dialog" aria-modal="true" aria-label="Main menu">
+
+                    <button class="drawer-close" id="drawerClose" aria-label="Close menu"></button>
+                    <nav class="drawer-nav">
+                        <a href="index.html" class="drawer-link">Main Space</a>
+                        <a href="Aboutme.html" class="drawer-link" target="_blank">About me</a>
+                        <!--<a href="Ideas.html" class="drawer-link">Ideas</a>-->
+                        <!--<a href="Achievements.html" class="drawer-link">Achievements</a>-->
+                        <a href="mailto:sonarritesh6@gmail.com" class="drawer-link">Send Mail</a>
+                    </nav>
+                </aside>
+            </div>
+            <!-- empty -->
+        </nav>
+    </header>
+
+    <main>
+        <div class="top-sections">
+
+        <section id="home" class="section home-section">
+            
+            <h1>Projects</h1>
+                <div>
+                    <a href="Projects.html"><img src="Icons/Project1.gif" alt="Projects1" class="img-projects"></a>
+                </div>
+
+        </section>
+        
+        <section id="about" class="section about-section">
+
+            <h2>Games</h2>
+            <div>
+                <a href="Games.html"><img src="Icons/Game2.gif" alt="Games1" class="img-games"></a>
+            </div>
+
+        </section>
+        </div>
+
+        <section id="services" class="section services-section">
+            <h2>My Skills</h2>
+
+            <div class="services-slider">
+               
+                <div class="slider-viewport">
+                    <div class="slider-track">
+                        <div class="slide service-card">
+                            <h3>Web Design</h3>
+                            <p>Modern, responsive, and user-friendly web design for responsive layouts, accessibility</p>
+                        </div>
+                        <div class="slide service-card">
+                            <h3>Behaviour Development</h3>
+                            <p>C Programming basics, data structures and JavaScript DOM manipulation, event handling</p>
+                        </div>
+                        <div class="slide service-card">
+                            <h3>Microsoft Excel</h3>
+                            <p>Data sorting, filtering, and functions (XLOOKUP, VLOOKUP) for effective data management.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; <span id="year"></span> MySpace. All rights reserved.</p>
+    </footer>
+
+    <script>
+    // the current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+
+    <script defer src="script.js"></script>
+    <script src="gif-autoplay.js" defer></script>
+</body>
+</html>

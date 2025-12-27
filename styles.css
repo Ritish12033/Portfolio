@@ -1,0 +1,477 @@
+
+/*---------------------------------------------------------Index Page styles (Basic changes applicable to all pages)--------------------------------------------------------------*/
+body {
+    background: url("./images/scott-webb.jpg") no-repeat center fixed;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;
+    box-sizing: border-box;
+}
+
+/*.box1 {
+    position: fixed;
+    margin-top: 30vh;
+    width: 25vw;
+    height: 25vh;
+    max-width: 230px;
+    max-height: 50px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(219, 228, 207, 0.279);
+}
+
+.box2 {
+    position: fixed;
+    margin-top: 37vh;
+    width: 25vw;
+    height: 25vh;
+    max-width: 230px;
+    max-height: 50px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(219, 228, 207, 0.279);
+}
+
+.box3 {
+    position: fixed;
+    margin-top: 44vh;
+    width: 25vw;
+    height: 25vh;
+    max-width: 230px;
+    max-height: 50px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(219, 228, 207, 0.279);
+}*/
+
+/*nav and menu bars, links, logo
+.avatar {
+    position: fixed;
+    width: 25vw;
+    height: 30vh;
+    max-width: 230px;
+    max-height: 250px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(219, 228, 207, 0.279);
+}*/
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #f1d17b;
+    text-shadow: #9d54ecda 1px 1px 2px, #a97de7e2 0 0 0.2em;
+    user-select: none;
+    width: fit-content auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+/* main layout */
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem 0 1rem;
+}
+
+/* sections */
+.section {
+    flex: 1 1 0;
+    padding: 2rem 0;
+    margin-right: 0;
+    border-radius: 16px;
+    background: rgba(39, 39, 39, 0.367);
+}
+
+/*Projects & games on main page*/
+.img-projects, .img-games {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    opacity: 0.7;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+}
+.img-projects:hover, .img-games:hover {
+    transform: scale(1.03);
+    transition: transform 0.3s ease;
+    opacity: 1;
+}
+
+
+/* home section */
+.home-section .home-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.home-section img.Me {
+    width: 120px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+    margin: 0;
+}
+.home-section h1, h2 {
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 0 0 0.5rem 0;
+    color: #bcffedbb;
+    text-shadow: #53bafff9 1px 1px 2px, #4f01b5d8 0 0 0.2em;
+}
+.top-sections {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 2rem;
+    height: auto;
+    align-items: flex-start;
+}
+
+/* subtitle */
+.subtitle {
+    font-size: 1.2rem;
+    color: #ffe4c4;
+    margin-bottom: 0.5rem;
+}
+
+/* services list */
+.services-list {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+/* unified service-card */
+.service-card {
+    background: #82c5b6ad;
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    min-width: 220px;
+    max-width: 320px;
+    flex: 1 1 220px;
+    text-align: center;
+    color: #142d43;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.service-card h3 {
+    color: #254462d5;
+    margin-bottom: 0.7rem;
+}
+/*.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: #75e9d0de;
+}*/
+
+/* Services slider */
+.services-section { padding: 2rem 1rem; box-sizing: border-box; }
+.services-slider { position: relative; width: 100%; max-width: 1200px; margin: 0 auto; box-sizing: border-box; }
+.slider-viewport { overflow: hidden; width: 100%; }
+.slider-track { display: flex; transition: transform 400ms ease; will-change: transform; }
+.slide { box-sizing: border-box; padding: 1.5rem; flex: 0 0 100%; }
+
+
+/*Menu button*/
+.menu-button{
+    position: fixed;
+    top: max(12px, env(safe-area-inset-top));
+    right: max(12px, env(safe-area-inset-right));
+    width: 48px;
+    height: 48px;
+    background: rgba(70, 115, 199, 0.411);
+    backdrop-filter: blur(6px);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1400;
+    padding: 8px;
+    border-radius: 10px;
+    transition: background 180ms ease, transform 170ms ease;
+    -webkit-tap-highlight-color: transparent;
+}
+.menu-button:hover { 
+    background: rgba(70, 115, 199, 0.6);
+    transform: scale(1.05);
+}
+.menu-button:active { 
+    transform: scale(1.1);
+}
+.menu-button .bar{
+    display: block;
+    width: 20px;
+    height: 2.8px;
+    background: #3946d6d5;
+    border-radius: 1px;
+    transition: transform 100ms ease, opacity 100ms ease;
+    transform-origin: center;
+}
+.menu-button .bar + .bar { 
+    margin-top: 6px; 
+}
+.menu-button.open .bar1{
+    transform: translateY(0.01px) rotate(45deg);
+}
+.menu-button.open .bar3{
+    transform: translateY(-3px) rotate(-45deg);
+}
+@media (max-width: 420px) {
+    .menu-button { width:44px; height:44px; right: 10px; top: max(8px, env(safe-area-inset-top)); }
+    .menu-button .bar { width: 18px; }
+}
+
+/* off-canvas drawer */
+.menu-drawer{position: fixed; inset: 0; pointer-events: none; z-index: 1100;}
+.menu-overlay{
+    position: absolute; inset: 0; background: rgba(37, 37, 37, 0); opacity: 0; transition: opacity 260ms ease; pointer-events: none;
+}
+.drawer-panel{
+    position: absolute;
+    top: 0;
+    right: -360px;
+    width: 320px;
+    max-width: calc(100% - 40px);
+    height: 100%;
+    background: #aeaeae9a;
+    padding: 22px;
+    transform: translateX(0);
+    transition: right 300ms cubic-bezier(.2,.9,.3,1), box-shadow 200ms;
+    pointer-events: auto;
+    overflow-y: auto;
+}
+.menu-drawer.open .menu-overlay{opacity:1; pointer-events: auto;}
+.menu-drawer.open .drawer-panel{ right: 0; }
+
+/*Drawer close button*/
+.drawer-close{
+    background: transparent; border: 0; font-size: 20px; float: right; cursor: pointer;
+}
+.drawer-nav{ display: flex; flex-direction: column; gap: 10px; margin-top: 14px; }
+.drawer-link{ color: #8cfffd; text-decoration: none; font-weight: 600; padding: 8px 6px; border-radius: 6px; }
+.drawer-link:hover{ background: rgb(1, 255, 247); color: rgb(15, 101, 171); }
+
+/* Responsive: slides per view */
+@media (min-width: 700px) {
+  .slide { flex: 0 0 50%; }
+}
+@media (min-width: 1100px) {
+  .slide { flex: 0 0 33.3333%; }
+}
+
+/*Section styles*/
+.section { max-width: 1100px; margin: 0 auto; padding: 1.5rem; box-sizing: border-box; }
+
+/* Responsive Styles */
+@media (max-width:1100px) {
+    main {
+        max-width: 98vw;
+        max-height: fit-content;
+    }
+}
+
+@media (max-width: 700px) {
+    .services-list {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .home-section .home-content {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .top-sections {
+        flex-direction: column;
+        gap: 1.5rem;
+        height: auto;
+        align-items: stretch;
+    }
+}
+@media (max-width: 600px) {
+    main {
+        padding: 1rem 0.5rem 0 0.5rem;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+}
+
+/*section styles on small screens*/
+@media screen and (max-width: 768px) {
+  .services-slider {
+        display: block;
+        overflow-y: auto;
+        max-height: none;
+        padding: 1rem;
+    }
+
+    .slider-viewport {
+        width: 100%;
+        overflow: visible;
+    }
+
+    .slider-track {
+        display: flex;
+        flex-direction: column;
+        transform: none;
+        gap: 1rem;
+    }
+
+    .service-card {
+        width: 100%;
+        min-width: unset;
+        margin: 0;
+    }
+
+    /* Hide slider buttons on mobile */
+    .slider-btn {
+        display: none;
+    }
+}
+
+/* Small screen vertical slider */
+@media screen and (max-width: 768px) {
+  .slider-track {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .slide,
+  .service-card {
+    flex: none;
+    width: 100%;
+    min-width: unset;
+    box-sizing: border-box;
+    min-height: 180px; /* adjust card height if needed */
+    margin: 0;
+  }
+
+  /* viewport sized to show 3 cards (3 * card height + 2 * gap) */
+  .slider-viewport {
+    max-height: calc(3 * 180px + 2 * 1rem);
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* hide any slider buttons / controls */
+  .slider-btn {
+    display: none !important;
+  }
+}
+
+footer {
+    margin-top: 5rem;
+    color: #2043c2d7;
+    background: transparent;
+    font-size: 0.7rem;
+    position: fixed;
+    bottom: 0;
+}
+
+/*---------------------------------------------------------Projects Page styles--------------------------------------------------------------*/
+.bodyprojects {
+    background: url("Images/samuel-scalzo.jpg") no-repeat center fixed;
+    background-size: cover;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;
+    color: rgb(234, 255, 0);
+}
+
+.project-section {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+    flex: 1 1 0;
+    padding: 10px;
+    border: #142d43d7 2px solid;
+    margin-right: 0;
+    border-radius: 16px;
+    background: rgba(39, 39, 39, 0.367);
+}
+
+/*---------------------------------------------------------Games Page styles--------------------------------------------------------------*/
+.bodygames {
+    background: url("Images/jason-leung.jpg") no-repeat center fixed;
+    background-size: cover;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;
+}
+
+.game-section {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+    flex: 1 1 0;
+    padding: 10px;
+    border: #142d43d7 2px solid;
+    margin-right: 0;
+    border-radius: 16px;
+    background: rgba(39, 39, 39, 0.367);
+}
+
+.game-image1 {
+    width: 170px;
+    height: 150px;
+    border-radius: 12px;
+    float: right;
+    position: relative;
+}
+.game-image1:hover {
+    transform: scale(1.01);
+    transition: transform 0.3s ease;
+    box-shadow: #c196ef 0px 0px 6px 2px;
+}
+.game1playlink {
+    color: #4ab905;
+    text-decoration: none;
+}
+.game1playlink:hover {
+    text-decoration: none;
+    color: #f68d14;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+
+/*---------------------------------------------------------About Me Page styles--------------------------------------------------------------*/
+.bodyaboutme {
+    background: url("Images/ryan-moreno.jpg") no-repeat center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;
+    color: #82d0f8e8;
+    line-height: 1.8;
+    text-indent: 1px;
+    word-spacing: 1.2px;
+}
+.biography-section {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+    flex: 1 1 0;
+    padding: 10px;
+    border: #142d43d7 2px solid;
+    margin-right: 0;
+    border-radius: 16px;
+    background: rgba(144, 110, 110, 0.367);
+}
+
+
+/*---------------------------------------------------------Achievements Page styles--------------------------------------------------------------*/
+.bodyachievements {
+    background: url("Images/teo-d.jpg") no-repeat center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;
+}

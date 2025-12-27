@@ -1,0 +1,81 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>How to Play</title>
+
+    <link rel="icon" href="" type="image/x-icon">
+</head>
+<body style="background: url('./images/luke-chesser-pJa.jpg') no-repeat center fixed;">
+    <h2>Snake Game (CAMLIV)</h2>
+    <h4>About the game</h4>
+    <ul>
+        <li>The game is a gesture-controlled version of the classic Snake game, where the snake moves up, down, left, and right based on live predictions from a custom machine learning model.</li>
+        <li>A webcam feed captures the players movements, MobileNet extracts visual features, and a lightweight neural network predicts which gesture the player is performing.</li>
+        <li>The same browser platform (CAMLIV) also lets users create and train their own gesture models, then plug those models directly into the Snake game for interactive testing.</li>
+        <li>Everything runs locally in the browser, which keeps latency low and ensures that webcam images are not sent to any external server.</li>
+    </ul>
+    <h4>How to use the project</h4>
+    <ul>
+        <li>As an educational tool, the project demonstrates end-to-end machine learning: data collection, training, live inference, and deployment into a real game.</li>
+        <li>As a portfolio piece, it showcases skills in front-end development (HTML/CSS/JS), TensorFlow.js integration, real-time webcam processing, and user-centric interaction design.</li>
+        <li>It can be used in classrooms, workshops, or demos to explain concepts like feature extraction, transfer learning, and real-time prediction in a hands-on, visual way.</li>
+    </ul>
+    <h4>Instructions: training your gesture model</h4>
+    <ol>
+        <li>Launch CAMLIV</li>
+            <ul>Open the main CAMLIVE page, which shows buttons for Custom Model, Import Model, and Snake Game.</ul><br>
+
+        <li>Open the Custom Model module</li>
+            <ul>Click “Custom Model” to enter the interface where you can create and train a new model with your webcam.</ul><br>
+
+        <li>Allow camera access</li>
+            <ul>When prompted, grant webcam permission so the live video feed appears on the page.</ul><br>
+
+        <li>Define gesture classes</li>
+            <ul>Add class names that you will use to control the snake, such as Up, Down, Left, and Right.</ul><br>
+
+        <li>Capture training samples</li>
+            <ul>For each class, perform the corresponding hand gesture in front of the camera and capture 30-50 sample images per gesture, varying angle, position, and lighting for better robustness.</ul><br>
+
+        <li>Train the model</li>
+            <ul>Start training; CAMLIV uses MobileNet as a feature extractor and a dense neural network classifier trained in-browser with the Adam optimizer and categorical cross-entropy loss.</ul><br>
+
+        <li>Test live predictions</li>
+            <ul>After training, switch to live prediction mode and check if your gestures are correctly recognized with high confidence. If accuracy is low, collect more samples and retrain.</ul><br>
+
+        <li>Save the trained model (optional)</li>
+            <ul>Export the model and label files to your device so you can reload them later using the Import Model option.</ul><br>
+    </ol>
+    <h4>Instructions: playing the Snake game</h4>
+    <ol>
+        <li>Load or create a model</li>
+            <ul>Either use the model you just trained or go to “Import Model” to load a previously saved TensorFlow.js model and its label file.</ul><br>
+
+        <li>Open the Snake Game</li>
+            <ul>From the main page, click “Snake Game” to launch the gesture-controlled Snake interface.</ul><br>
+
+        <li>Enable webcam and model</li>
+            <ul>Make sure the camera is toggled on and the trained model is loaded so the game can read real-time predictions from your gestures.</ul><br>
+
+        <li>Map gestures to directions</li>
+            <ul>Use the same gestures you trained (e.g., a specific hand pose for up, another for left) to steer the snake in the game. The models predicted class is translated into movement commands.</ul><br>
+
+        <li>Play the game</li>
+            <ul>Try to eat as many food items as possible without hitting the walls or the snake's own body, while observing how model accuracy and latency affect control smoothness.</ul><br>
+
+        <li>Refine control</li>
+            <ul>If the snake does not respond reliably, adjust your gestures, improve lighting, collect more samples per class, and retrain the model for better prediction stability.</ul><br>
+    </ol>
+    
+    <h4>Best practices for players</h4>
+    <ul>
+        <li>Use clear, distinct gestures for each direction to help the model differentiate classes.</li>
+        <li>Play in a well-lit environment with a relatively plain background to reduce noise in the webcam input.</li>
+        <li>Keep your hand within the camera's field of view and at a consistent distance from the lens for smoother control.</li>
+    </ul>
+</body>
+</html>

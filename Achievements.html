@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Achievements</title>
+</head>
+
+<body class="bodyachievements">
+    <header>
+        <h2>My Achievements</h2>
+
+        <nav class="navbar">
+            <!--animated menu button-->
+            <button class="menu-button" id="menuButton" aria-controls="menuDrawer" aria-expanded="false" aria-label="Open menu">
+                <span class="bar bar1"></span>
+                <span class="bar bar2"></span>
+                <span class="bar bar3"></span>
+            </button>
+
+            <div class="menu-drawer" id="menuDrawer" aria-hidden="true">
+
+                <div class="menu-overlay" id="menuOverlay"></div>
+
+                <aside class="drawer-panel" role="dialog" aria-modal="true" aria-label="Main menu">
+
+                    <button class="drawer-close" id="drawerClose" aria-label="Close menu"></button>
+
+                    <nav class="drawer-nav">
+                        <a href="index.html" class="drawer-link">Main Space</a>
+                        <a href="Aboutme.html" class="drawer-link" target="_blank">About me</a>
+                        <a href="Ideas.html" class="drawer-link">Ideas</a>
+                        <a href="Achievements.html" class="drawer-link">Achievements</a>
+                        <a href="mailto:sonarritesh6@gmail.com" class="drawer-link">Send Mail</a>
+                    </nav>
+                </aside>
+            </div>
+            <!-- empty -->
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Education</h2>
+            <ul>
+                <li>Bachelor's Degree in Computer Science</li>
+                <li>Master's Degree in Software Engineering</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Certifications</h2>
+            <ul>
+                <li>Certified JavaScript Developer</li>
+                <li>Certified Python Programmer</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Projects</h2>
+            <ul>
+                <li>Portfolio Website</li>
+                <li>E-commerce Application</li>
+            </ul>
+        </section>
+    </main>
+    
+    <script defer src="script.js"></script>
+    <script src="gif-autoplay.js" defer></script>
+</body>
+</html>
