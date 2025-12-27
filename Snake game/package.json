@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "@tensorflow/tfjs": "^4.22.0",
+    "@tensorflow/tfjs-data": "^4.22.0"
+  },
+  "scripts": {
+    "start": "npx parcel main.html --no-hmr --open",
+    "build": "parcel build main.html --public-url ./"
+  },
+  "devDependencies": {
+    "buffer": "^6.0.3",
+    "parcel": "^2.14.4",
+    "process": "^0.11.10"
+  }
+}

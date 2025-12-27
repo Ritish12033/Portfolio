@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAMLIVE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-bg: #121212;
+            --text-primary: #ffffff;
+            --green-button: #2ecc71;
+            --red-button: #e74c3c;
+            --white-button: #f5f5f5;
+            --green-hover: #27ae60;
+            --red-hover: #c0392b;
+            --white-hover: #e0e0e0;
+            --button-shadow: rgba(0, 0, 0, 0.3);
+            --title-glow: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--primary-bg);
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(50, 50, 50, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(30, 30, 30, 0.2) 0%, transparent 50%);
+            color: var(--text-primary);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            padding: 2rem;
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 3rem;
+            font-weight: 800;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.2),
+                        0 0 20px rgba(255, 255, 255, 0.1);
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--text-primary), transparent);
+        }
+
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .button {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            width: 220px;
+            height: 220px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            color: var(--text-primary);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .button i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        #custom_model {
+            background-color: var(--green-button);
+        }
+
+        #custom_model:hover {
+            background-color: var(--green-hover);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 25px var(--button-shadow);
+        }
+
+        #import_model {
+            background-color: var(--red-button);
+        }
+
+        #import_model:hover {
+            background-color: var(--red-hover);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 25px var(--button-shadow);
+        }
+
+        #snake_game {
+            background-color: var(--white-button);
+            color: #333;
+        }
+
+        #snake_game:hover {
+            background-color: var(--white-hover);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 25px var(--button-shadow);
+        }
+
+        .button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .button:hover::before {
+            left: 100%;
+        }
+
+        /* Commented out as per original file */
+        /* #dataset_model {
+            background-color: aqua;
+        } */
+
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 3rem;
+            }
+            
+            .button {
+                width: 180px;
+                height: 180px;
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .button-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .button {
+                width: 80%;
+                max-width: 300px;
+                height: 150px;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+            
+            .button {
+                padding: 1.5rem;
+                height: 120px;
+            }
+            
+            .button i {
+                font-size: 2rem;
+            }
+        }
+
+        /* Animation for the title */
+        @keyframes glow {
+            0%, 100% {
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.2),
+                            0 0 20px rgba(255, 255, 255, 0.1);
+            }
+            50% {
+                text-shadow: 0 0 15px rgba(255, 255, 255, 0.3),
+                            0 0 30px rgba(255, 255, 255, 0.2);
+            }
+        }
+        
+        h1 {
+            animation: glow 3s infinite;
+        }
+
+        /* TensorFlow status */
+        #tf-status {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>CAMLIVE</h1>
+
+        <!-- TensorFlow.js load status (kept in DOM for accessibility/logging, but hidden) -->
+        <div id="tf-status" role="status" aria-live="polite">Checking TensorFlow.js...</div>
+        
+        <div class="button-container">
+            <a href="./custom_model/custom_model.html" id="custom_model" class="button">
+                <i class="fas fa-cogs"></i>
+                Custom Model
+            </a>
+            
+            <a href="./import_model/import_model.html" id="import_model" class="button">
+                <i class="fas fa-file-import"></i>
+                Import Model
+            </a>
+            
+            <!-- <a href="./dataset_model/dataset.html" id="dataset_model" class="button">Import Dataset</a> -->
+            
+            <a href="./examples/snake.html" id="snake_game" class="button">
+                <i class="fas fa-gamepad"></i>
+                Snake Game
+            </a>
+        </div>
+    </div>
+
+    <!-- Load TensorFlow.js with robust handling and fallback -->
+    <script>
+      (function () {
+        const statusEl = document.getElementById('tf-status');
+
+        function setStatus(text, color) {
+          if (statusEl) {
+            // keep the element for accessibility/assistive tech, but do not expose version numbers
+            statusEl.textContent = text;
+            if (color) statusEl.style.color = color;
+          }
+        }
+
+        function onTfLoaded() {
+          try {
+            // Log full version to console for debugging, but do NOT show the numeric version in the UI.
+            const versionObj = window.tf && window.tf.version;
+            let version = 'unknown';
+            if (typeof versionObj === 'string') version = versionObj;
+            else if (versionObj && versionObj.tfjs) version = versionObj.tfjs;
+            console.log('TensorFlow.js loaded, version:', version);
+            setStatus('TensorFlow.js loaded', '#2ecc71'); // no version shown
+          } catch (e) {
+            console.error('Error after TensorFlow loaded:', e);
+            setStatus('TensorFlow.js loaded', '#2ecc71');
+          }
+        }
+
+        function loadScript(src, cb) {
+          const s = document.createElement('script'); s.src = src; s.async = true; s.onload = cb; s.onerror = () => console.error('Failed to load script:', src); document.head.appendChild(s);
+        }
+
+        const primary = 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js';
+        const fallback = 'https://unpkg.com/@tensorflow/tfjs@4.22.0/dist/tf.min.js';
+
+        if (window.tf) onTfLoaded();
+        else {
+          setStatus('Loading TensorFlow.js...', '#f1c40f');
+          loadScript(primary, function () {
+            if (window.tf) onTfLoaded();
+            else loadScript(fallback, function () { if (window.tf) onTfLoaded(); else setStatus('Failed to load TensorFlow.js (check network).', '#e74c3c'); });
+          });
+          setTimeout(() => { if (!window.tf && statusEl && !statusEl.textContent.includes('Failed')) setStatus('Still loading TensorFlow.js... if this hangs, check network or CDN.', '#f39c12'); }, 4000);
+        }
+      })();
+    </script>
+</body>
+</html>
