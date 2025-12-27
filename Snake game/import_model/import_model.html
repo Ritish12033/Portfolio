@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Import Model & Live Prediction</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Import Model & Live Prediction</h1>
+  
+  <!-- Button to trigger the file picker -->
+  <button id="start">Import Model</button>
+  
+  <!-- Button to toggle camera (for mobile devices) -->
+  <button id="toggleCameraButton">Toggle Camera</button>
+  
+  <!-- Hidden file input for model files (JSON, metadata JSON, and BIN) -->
+  <input type="file" id="modelFilesInput" accept=".json,.bin" multiple style="display:none;" />
+  
+  <div id="webcam-container">
+    <video id="webcam" autoplay playsinline></video>
+  </div>
+  
+  <div id="status">Status: waiting to load model…</div>
+  <div id="prediction-container"></div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js"></script>
+  <script type="module" src="import_model.js"></script>
+</body>
+</html>

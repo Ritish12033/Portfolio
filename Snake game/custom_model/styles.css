@@ -1,0 +1,156 @@
+/* Basic Dark Theme Variables */
+:root {
+    --bg-color: #000000;
+    --card-bg-color: #000000;
+    --text-color: #ffffff;
+    --accent-color: #4caf50;
+    --hover-color: #45a049;
+    --border-color: #000000;
+  }
+  
+  /* Global Resets and Body */
+  body {
+    margin: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Header */
+  header {
+    text-align: center;
+    padding: 20px;
+    background-color: #000000;
+  }
+  
+  /* Main Layout */
+  main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    gap: 20px;
+  }
+  
+  /* Sections */
+  #video-section,
+  #classes-section,
+  #prediction-section {
+    background-color: var(--card-bg-color);
+    border-radius: 8px;
+    padding: 20px;
+    min-width: 280px;
+    flex: 1 1 300px;
+  }
+  
+  /* Video Styling */
+  #webcam {
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 10px;
+    transform: scaleX(-1);
+  }
+  
+  /* Status Display */
+  #status {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+  /* Buttons */
+  .button-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .button-group button,
+  #class-creator button {
+    background-color: var(--accent-color);
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .button-group button:hover,
+  #class-creator button:hover {
+    background-color: var(--hover-color);
+  }
+  
+  /* Class Creator */
+  #class-creator {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  #class-creator input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+  }
+  
+  /* Class Buttons/Counts */
+  .class-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
+  
+  .record-button {
+    background-color: #666;
+    border: none;
+    border-radius: 5px;
+    padding: 6px 10px;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .record-button:hover {
+    background-color: #555;
+  }
+  
+  /* Prediction Bars */
+  #prediction-container {
+    margin-top: 10px;
+  }
+  
+  .prediction-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  
+  .prediction-label {
+    width: 60px;
+    text-transform: capitalize;
+  }
+  
+  .prediction-bar-container {
+    flex: 1;
+    background-color: #444;
+    border-radius: 10px;
+    margin: 0 10px;
+    overflow: hidden;
+    height: 20px;
+    position: relative;
+  }
+  
+  .prediction-bar {
+    background-color: var(--accent-color);
+    height: 100%;
+    width: 0;
+    transition: width 0.3s;
+  }
+  
+  .prediction-percentage {
+    width: 40px;
+    text-align: right;
+  }

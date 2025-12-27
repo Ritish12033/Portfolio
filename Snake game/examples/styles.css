@@ -1,0 +1,71 @@
+/* Dark Theme Variables */
+:root {
+  --bg-color: #000000;
+  --card-bg-color: #121212;
+  --text-color: #ffffff;
+  --accent-color: silver;
+  --hover-color: silver;
+  --border-color: #ffffff;
+}
+
+/* Global Resets and Body Styling */
+body {
+  margin: 0;
+  padding: 20px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: sans-serif;
+  text-align: center;
+}
+
+/* Header and Page Title */
+h1 {
+  margin: 0;
+  padding: 20px;
+}
+
+/* Game Canvas Styling */
+#gameCanvas {
+  border: 2px solid var(--border-color);
+  background-color: var(--card-bg-color);
+  margin-top: 20px;
+  border-radius: 8px;
+}
+
+/* Webcam Preview Styling */
+#webcam {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 150px;
+  height: auto;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  transform: scaleX(-1); /* Mirrors the webcam preview, similar to style1.css */
+}
+
+/* Controls Styling */
+#controls {
+  margin-top: 10px;
+}
+
+#controls button {
+  background-color: var(--accent-color);
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: 5px;
+}
+
+#controls button:hover {
+  background-color: var(--hover-color);
+}
+
+/* Status Display */
+#status {
+  margin-top: 10px;
+  font-weight: bold;
+}

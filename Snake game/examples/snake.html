@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Snake Game Controlled by Webcam Model</title>
+  <!-- Import the updated dark theme CSS -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- Optionally, if you need to support additional styles from style1.css, you could import that as well -->
+  <!-- <link rel="stylesheet" href="style1.css"> -->
+</head>
+<body>
+  <h1>Snake Game Controlled by Webcam Model</h1>
+  
+  <!-- Small webcam preview -->
+  <video id="webcam" autoplay playsinline width="224" height="224"></video>
+  
+  <div id="controls">
+    <!-- File input to load the saved model (model JSON, weights BIN, and labels JSON) -->
+    <input type="file" id="modelFilesInput" multiple style="display:none;">
+    <button id="loadModelButton">Load Model</button>
+    <!-- Button to start the snake game once the model is loaded -->
+    <button id="startGameButton" disabled>Start Game</button>
+  </div>
+  
+  <div id="status"></div>
+
+  <!-- Canvas for the snake game -->
+  <canvas id="gameCanvas" width="400" height="400"></canvas>
+
+  <!-- External JavaScript file for game functionality -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js"></script>
+  <script type="module" src="snake.js"></script>
+  <script>
+  // Replace / adapt this script into your snake page to ensure tf + model + camera are ready.
+  (async function () {
+    const MODEL_URL = './path/to/your/model.json'; // <<-- update this
+    const USE_LAYERS = true; // set false if you exported a graph model (tf.loadGraphModel)
+
+    function log(msg) { console.log('[snake-gesture]', msg); }
+
+    // wait for tf to be available (main.html loads TFJS async)
+    async function waitForTf(timeout = 8000) {
+      const start = Date.now();
+      while (!window.tf) {
+        if (Date.now() - start > timeout) throw new Error('TensorFlow.js not available');
+        await new Promise(r => setTimeout(r, 100));
+      }
+      return window.tf;
+    }
+
+    try {
+      const tf = await waitForTf();
+      log('tf found, version: ' + (tf && tf.version ? (tf.version.tfjs || tf.version) : 'unknown'));
+
+      // load model
+      let model;
+      if (USE_LAYERS) {
+        model = await tf.loadLayersModel(MODEL_URL);
+      } else {
+        model = await tf.loadGraphModel(MODEL_URL);
+      }
+      log('Model loaded');
+
+      // get video element (ensure element id matches your HTML)
+      const video = document.querySelector('video#webcam') || document.querySelector('video');
+      if (!video) throw new Error('No <video> element found for webcam');
+
+      // start camera if not already running
+      if (video.srcObject == null) {
+        const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'user' }, audio: false });
+        video.srcObject = stream;
+      }
+      await video.play();
+      await new Promise(r => {
+        if (video.readyState >= 2) r();
+        else video.onloadeddata = () => r();
+      });
+      log('Webcam started');
+
+      // optional: labels for gestures (adjust to your model)
+      const LABELS = ['left','right','up','down','none']; // adapt to your model's order
+
+      // preprocessing helper - adapt to how your model expects input
+      function preprocessVideoFrame() {
+        // example: crop/resize to model input and normalize 0..1
+        const inputSize = 224; // change if your model uses a different size
+        const tensor = tf.browser.fromPixels(video)
+          .resizeNearestNeighbor([inputSize, inputSize])
+          .toFloat()
+          .div(255.0)
+          .expandDims(0);
+        return tensor;
+      }
+
+      let running = true;
+      async function predictLoop() {
+        if (!running) return;
+        tf.engine().startScope();
+        try {
+          const input = preprocessVideoFrame();
+          const out = model.predict(input);
+          // handle tensor or array outputs
+          const probs = Array.isArray(out) ? await out[0].data() : await out.data();
+          // get max
+          let maxIdx = 0;
+          for (let i = 1; i < probs.length; i++) if (probs[i] > probs[maxIdx]) maxIdx = i;
+          const confidence = probs[maxIdx];
+          const gesture = LABELS[maxIdx] || 'unknown';
+          // threshold to avoid flicker
+          const THRESH = 0.6;
+          if (confidence > THRESH && gesture !== 'none') {
+            // call your snake control function here, eg:
+            // snake.setDirection(gesture);
+            log(`Gesture: ${gesture} (${(confidence*100).toFixed(1)}%)`);
+            // TODO: map 'left'/'right' etc to snake controls
+          }
+          // clean up
+          if (Array.isArray(out)) out.forEach(t => t.dispose && t.dispose());
+          else out.dispose && out.dispose();
+          input.dispose && input.dispose();
+        } catch (e) {
+          console.error('Prediction error', e);
+        } finally {
+          tf.engine().endScope();
+          requestAnimationFrame(predictLoop);
+        }
+      }
+
+      predictLoop();
+
+      // expose stop if needed
+      window._snakeGestureStop = () => { running = false; };
+    } catch (err) {
+      console.error('Initialization failed:', err);
+    }
+  })();
+  </script>
+</body>
+</html>

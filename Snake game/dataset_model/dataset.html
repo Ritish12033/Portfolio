@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>mport Dateset & Live Prediction</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Import Dateset & Live Prediction</h1>
+
+  <!-- Buttons and hidden file inputs for selecting training/testing images -->
+  <button id="loadTrainDataButton">Load Training Data</button>
+  <input type="file" id="trainFilesInput" accept="image/*" multiple style="display:none;" />
+
+  <button id="loadTestDataButton">Load Testing Data</button>
+  <input type="file" id="testFilesInput" accept="image/*" multiple style="display:none;" />
+
+  <!-- Button to start model training -->
+  <button id="trainModelButton">Train Model</button>
+
+  <button id="saveModelButton">Save Model</button>
+
+  <!-- Button to toggle the webcam for live prediction -->
+  <button id="toggleCameraButton">Toggle Camera</button>
+
+  <!-- Container for webcam video -->
+  <div id="webcam-container">
+    <video id="webcam" autoplay playsinline></video>
+  </div>
+
+  <!-- Status and prediction output -->
+  <div id="status">Status: waiting to load data…</div>
+  <div id="prediction-container"></div>
+
+  <!-- Main script -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js"></script>
+  <script type="module" src="dataset.js"></script>
+</body>
+</html>

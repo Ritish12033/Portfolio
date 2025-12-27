@@ -1,0 +1,59 @@
+<!DOCTYPE html> 
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Custom Model</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Custom Model</h1>
+    </header>
+
+    <main>
+      <!-- Video and Control Buttons -->
+      <section id="video-section">
+        <!-- Increased video dimensions -->
+        <video
+          id="webcam"
+          autoplay
+          playsinline
+          muted
+          width="420"
+          height="420"
+        ></video>
+        <div id="status">Loading model...</div>
+        <div class="button-group">
+          <button id="train">Train Model</button>
+          <button id="predict">Start Predictions</button>
+          <button id="save">Save Model</button>
+          <!-- Toggle camera button -->
+          <button id="toggle-camera">Toggle Camera</button>
+        </div>
+      </section>
+
+      <!-- Custom Classes -->
+      <section id="classes-section">
+        <h2>Custom Classes</h2>
+        <div id="class-creator">
+          <input type="text" id="new-class-name" placeholder="Enter class name" />
+          <button id="add-class-button">Add Class</button>
+        </div>
+        <div id="buttons-container">
+          <!-- Dynamic class buttons & counters go here -->
+        </div>
+      </section>
+
+      <!-- Prediction Output Bars -->
+      <section id="prediction-section">
+        <h2>Output</h2>
+        <div id="prediction-container">
+          <!-- Dynamic prediction bars will be inserted here -->
+        </div>
+      </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js"></script>
+    <script type="module" src="custom_model.js"></script>
+  </body>
+</html>
