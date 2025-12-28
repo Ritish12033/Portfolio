@@ -242,7 +242,7 @@ main {
     width: 320px;
     max-width: calc(100% - 40px);
     height: 100%;
-    background: #aeaeae9a;
+    background: #282828e7;
     padding: 22px;
     transform: translateX(0);
     transition: right 300ms cubic-bezier(.2,.9,.3,1), box-shadow 200ms;
