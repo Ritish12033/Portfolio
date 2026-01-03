@@ -504,4 +504,65 @@ footer {
     margin: 0;
     padding: auto;
     font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;
+    color: #ffffffe2;
+    text-shadow: #9d54ecda 1px 1px 2px, #ee9e3bec 0 0 0.2em;
+    line-height: 1.8;
+    text-indent: 1px;
+    word-spacing: 1.2px;
+}
+
+.logoAchievements {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #e2f776;
+    text-shadow: #9d54ecda 1px 1px 2px, #a97de7e2 0 0 0.2em;
+    user-select: none;
+    width: fit-content auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.achievements-section {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+    flex: 1 1 0;
+    padding: 10px;
+    border: #3248aad7 2px solid;
+    margin-right: 0;
+    border-radius: 16px;
+    background: rgba(196, 159, 89, 0.776);
+}
+
+.gallery-img {
+    width: 600px;
+    height: 400px;    
+}
+
+/* Gallery styles */
+div.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+div.gallery-item {
+  margin: 5px;
+  width: 180px;
+}
+div.gallery-item:hover {
+    transform: scale(1.03);
+    transition: transform 0.3s ease;
+    box-shadow: #ffb700 0px 0px 6px 2px;
+}
+div.gallery-item img {
+  width: 100%;
+  height: auto;
+}
+div.gallery-item div.con {
+  padding: 10px;
+  text-align: center;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
 }
